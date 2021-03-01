@@ -48,7 +48,7 @@ public class CommonController {
 	    	msg.setTransactionKey("1");
 	    	
 	    	log.info(msg.toString());	
-	        sender.sendMsg(msg);
+	        sender.sndDstMsg(msg);
 	        
 	        return "Hello Root(/)";
 	    	

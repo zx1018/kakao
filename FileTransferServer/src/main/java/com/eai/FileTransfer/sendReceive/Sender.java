@@ -10,16 +10,11 @@ public class Sender {
 	@Autowired
 	private JmsTemplate jmsTemplate;
 	    
-    public void sendMsg(Message msg) {
-        jmsTemplate.convertAndSend("beanbroker-queue", msg);
+    public void sndDstMsg(Message msg) {	
+        jmsTemplate.convertAndSend("dst_rcv-queue", msg);
     }
     
-    
-    public void sendReplyMsg(Message msg) {	
-        jmsTemplate.convertAndSend("sendreply-queue", msg);
-    }
-    
-    public void sndRstMsg(Message msg) {	
-        jmsTemplate.convertAndSend("finalResponse-queue", msg);
+    public void sndSrcMsg(Message msg) {	
+        jmsTemplate.convertAndSend("src_rcv-queue", msg);
     }
 }

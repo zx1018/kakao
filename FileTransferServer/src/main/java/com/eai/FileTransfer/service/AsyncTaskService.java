@@ -35,7 +35,7 @@ public class AsyncTaskService {
 		else {
 			msg.setSndRst("N");
 		}
-		sender.sndRstMsg(msg);
+		sender.sndSrcMsg(msg);
 	}
 	
 	@Async

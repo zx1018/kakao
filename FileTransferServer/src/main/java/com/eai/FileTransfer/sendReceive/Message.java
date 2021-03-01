@@ -2,26 +2,47 @@ package com.eai.FileTransfer.sendReceive;
 
 public class Message {
 
-	private String fileName;       // 파일명 
+	private String fileName;       // 파일명
 	private String secretKey;      // 파일 암호화 키 
 	private String transactionKey; // 전문 거래 번호 
 	private String sndType;        // 전송방식
 	private String fileSize;       // 파일 사이즈 
 	private String srcPath;        // 파일 전송 경로 
 	private String dstPath;        // 파일 수신 경로 
-	private String rcvip;        // 수신측 ip 정보
+	private String dstFileName;    // 도착 파일명 
+	private String rcvip;          // 수신측 ip 정보
 	private String rcvPort;        // 수신측 Port 정보  
 	private String sndRst;         // 파일 송신 결과 
 	private String fileHash;       // 파일의 해시 값 
+	private String messageType;    // 전문구분 1 전송 요청, 2 전송 허가 3 
 	
 	
 	public Message() {
 		
 	}
-	
-	
 
-	// getter, setter 
+	// getter, setter
+	public String getMessageType() {
+		return messageType;
+	}
+
+
+	public String getDstFileName() {
+		return dstFileName;
+	}
+
+
+
+	public void setDstFileName(String dstFileName) {
+		this.dstFileName = dstFileName;
+	}
+
+
+
+	public void setMessageType(String messageType) {
+		this.messageType = messageType;
+	}
+	
 	public String getFileName() {
 		return fileName;
 	}
@@ -143,6 +164,8 @@ public class Message {
 		sb.append(" sndType:" +this.sndType);
 		sb.append(" srcPath:" +this.srcPath);
 		sb.append(" transactionKey:" +this.transactionKey);
+		sb.append(" messageType:" +this.messageType);
+		sb.append(" dstFileName:" +this.dstFileName);
 		
 		return sb.toString();
 	}
